@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <title>Crush-Boom-Snip</title>
+</head>
+
+<body>
+  <div class="container border border-dark">
+    <div class="row">
+      <div class="col-4 text-center">
+        <h1>Crush</h1>
+      </div>
+      <div class="col-4 text-center">
+        <h1>Boom</h1>
+      </div>
+      <div class="col-4 text-center">
+        <h1>Snip</h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-4">
+        <hr size=5rem />
+      </div>
+      <div class="col-4">
+        <hr size=5rem />
+      </div>
+      <div class="col-4">
+        <hr size=5rem />
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-4 border border-dark">
+        <img id="playch" src="imgs\buttons\bl.png">
+      </div>
+      <div class="col-4 border border-dark">
+        <img id="outcome" src="imgs\buttons\bl.png">
+      </div>
+      <div class="col-4 border border-dark">
+        <img id="comch" src="imgs\buttons\bl.png">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-4 border border-dark">
+        <input type="image" id="rock" src="imgs/buttons/rock.png" onclick="play('0')">
+      </div>
+      <div class="col-4 border border-dark">
+        <input type="image" id="dyn" src="imgs\buttons\dyn.png" onclick="play('1')">
+      </div>
+      <div class=" col-4 border border-dark">
+        <input type="image" id="sc" src="imgs\buttons\sc.png" onclick="play('2')">
+      </div>
+    </div>
+  </div>
+
+
+
+  <!--<button onclick="play('0')">Rock</button>
+  <button onclick="play('1')">Paper</button>
+  <button onclick="play('2')">Scissors</button>-->
+
+  <!--  <script src="app.js">-->
+  <script>
+    function play(playerChoice) {
+      let computerChoice = Math.floor(Math.random() * 3);
+
+      //rock = 0, dynamite = 1, scissors = 2
+      //id playch = Player choice square
+      //id outcome = outcome of game
+      //id comch = computer choice
+
+
+      if (playerChoice == 0 && computerChoice == 2) {
+        document.getElementById('playch').src = "imgs/ch/prock.png"
+        document.getElementById('comch').src = "imgs/ch/csc.png"
+        document.getElementById('outcome').src = "imgs/oc/p0c2.png"
+      }
+      else if (playerChoice == 2 && computerChoice == 1) {
+        document.getElementById('playch').src = "imgs/ch/psc.png"
+        document.getElementById('comch').src = "imgs/ch/cdyn.png"
+        document.getElementById('outcome').src = "imgs/oc/p2c1.png"
+      }
+      else if (playerChoice == 1 && computerChoice == 0) {
+        document.getElementById('playch').src = "imgs/ch/pdyn.png"
+        document.getElementById('comch').src = "imgs/ch/crock.png"
+        document.getElementById('outcome').src = "imgs/oc/p1c0.png"
+      }
+      else if (computerChoice == 0 && playerChoice == 2) {
+        document.getElementById('comch').src = "imgs/ch/crock.png"
+        document.getElementById('playch').src = "imgs/ch/psc.png"
+        document.getElementById('outcome').src = "imgs/oc/c0p2.png"
+      }
+      else if (computerChoice == 2 && playerChoice == 1) {
+        document.getElementById('comch').src = "imgs/ch/csc.png"
+        document.getElementById('playch').src = "imgs/ch/pdyn.png"
+        document.getElementById('outcome').src = "imgs/oc/c2p1.png"
+      }
+      else if (computerChoice == 1 && playerChoice == 0) {
+        document.getElementById('comch').src = "imgs/ch/cdyn.png"
+        document.getElementById('playch').src = "imgs/ch/prock.png"
+        document.getElementById('outcome').src = "imgs/oc/c1p0.png"
+      }
+      else if (playerChoice == computerChoice) {
+        document.getElementById('comch').src = "imgs/oc/tie.png"
+        document.getElementById('playch').src = "imgs/oc/tie.png"
+        document.getElementById('outcome').src = "imgs/oc/tie.png"
+      }
+    }
+
+  </script>
+
+</body>
+
+</html>
