@@ -24,36 +24,47 @@
       </div>
     </div>
     <div class="row">
+      <div class="col">
+        <h4 class="text-center">Play Count: </h4>
+        <h4 class="text-center" id="pc">0</h4>
+      </div>
+    </div>
+    <div class="row">
       <div class="col-4">
-        <hr size=5rem />
+        <h2 class="text-center">Your Choice</h2>
       </div>
       <div class="col-4">
-        <hr size=5rem />
+        <h2 id="winner" class="text-center">Outcome</h2>
       </div>
       <div class="col-4">
-        <hr size=5rem />
+        <h2 class="text-center">Computer Choice</h2>
       </div>
     </div>
     <div class="row">
       <div class="col-4 border border-dark">
-        <img id="playch" src="imgs\buttons\bl.png">
+        <img id="playch" src="imgs\buttons\bl.png" class="mx-auto d-block">
       </div>
       <div class="col-4 border border-dark">
-        <img id="outcome" src="imgs\buttons\bl.png">
+        <img id="outcome" src="imgs\buttons\bl.png" class="mx-auto d-block">
       </div>
       <div class="col-4 border border-dark">
-        <img id="comch" src="imgs\buttons\bl.png">
+        <img id="comch" src="imgs\buttons\bl.png" class="mx-auto d-block">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <h2 class="text-center">Play by clicking an image below</h2>
       </div>
     </div>
     <div class="row">
       <div class="col-4 border border-dark">
-        <input type="image" id="rock" src="imgs/buttons/rock.png" onclick="play('0')">
+        <input type="image" id="rock" src="imgs/buttons/rock.png" onclick="play('0')" class="mx-auto d-block">
       </div>
       <div class="col-4 border border-dark">
-        <input type="image" id="dyn" src="imgs\buttons\dyn.png" onclick="play('1')">
+        <input type="image" id="dyn" src="imgs\buttons\dyn.png" onclick="play('1')" class="mx-auto d-block">
       </div>
-      <div class=" col-4 border border-dark">
-        <input type="image" id="sc" src="imgs\buttons\sc.png" onclick="play('2')">
+      <div class="col-4 border border-dark">
+        <input type="image" id="sc" src="imgs\buttons\sc.png" onclick="play('2')" class="mx-auto d-block">
       </div>
     </div>
   </div>
@@ -66,7 +77,11 @@
 
   <!--  <script src="app.js">-->
   <script>
+    let counter = 0
     function play(playerChoice) {
+      counter++
+      document.getElementById('pc').textContent = counter
+
       let computerChoice = Math.floor(Math.random() * 3);
 
       //rock = 0, dynamite = 1, scissors = 2
@@ -79,36 +94,50 @@
         document.getElementById('playch').src = "imgs/ch/prock.png"
         document.getElementById('comch').src = "imgs/ch/csc.png"
         document.getElementById('outcome').src = "imgs/oc/p0c2.png"
+        document.getElementById('winner').textContent = "Player Wins!"
+
       }
       else if (playerChoice == 2 && computerChoice == 1) {
         document.getElementById('playch').src = "imgs/ch/psc.png"
         document.getElementById('comch').src = "imgs/ch/cdyn.png"
         document.getElementById('outcome').src = "imgs/oc/p2c1.png"
+        document.getElementById('winner').textContent = "Player Wins!"
+        document.getElementById('pc').textContent = counter
       }
       else if (playerChoice == 1 && computerChoice == 0) {
         document.getElementById('playch').src = "imgs/ch/pdyn.png"
         document.getElementById('comch').src = "imgs/ch/crock.png"
         document.getElementById('outcome').src = "imgs/oc/p1c0.png"
+        document.getElementById('winner').textContent = "Player Wins!"
+        document.getElementById('pc').textContent = counter
       }
       else if (computerChoice == 0 && playerChoice == 2) {
         document.getElementById('comch').src = "imgs/ch/crock.png"
         document.getElementById('playch').src = "imgs/ch/psc.png"
         document.getElementById('outcome').src = "imgs/oc/c0p2.png"
+        document.getElementById('winner').textContent = "Player Wins!"
+        document.getElementById('pc').textContent = counter
       }
       else if (computerChoice == 2 && playerChoice == 1) {
         document.getElementById('comch').src = "imgs/ch/csc.png"
         document.getElementById('playch').src = "imgs/ch/pdyn.png"
         document.getElementById('outcome').src = "imgs/oc/c2p1.png"
+        document.getElementById('winner').textContent = "Computer Wins!"
+        document.getElementById('pc').textContent = counter
       }
       else if (computerChoice == 1 && playerChoice == 0) {
         document.getElementById('comch').src = "imgs/ch/cdyn.png"
         document.getElementById('playch').src = "imgs/ch/prock.png"
         document.getElementById('outcome').src = "imgs/oc/c1p0.png"
+        document.getElementById('winner').textContent = "Computer Wins!"
+        document.getElementById('pc').textContent = counter
       }
       else if (playerChoice == computerChoice) {
         document.getElementById('comch').src = "imgs/oc/tie.png"
         document.getElementById('playch').src = "imgs/oc/tie.png"
         document.getElementById('outcome').src = "imgs/oc/tie.png"
+        document.getElementById('winner').textContent = "Tie!"
+        document.getElementById('pc').textContent = counter
       }
     }
 
